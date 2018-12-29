@@ -1,5 +1,6 @@
 import urllib3
 import os.path
+from bs4 import BeautifulSoup as bs
 
 class Spider:
     def DownloadFile(self, targetUrl):
