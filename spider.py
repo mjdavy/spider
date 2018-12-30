@@ -2,7 +2,7 @@ import urllib3
 import os.path
 from bs4 import BeautifulSoup as bs
 
-runningDataStore = 'E:\\RunningData'
+runningDataStore = '\\\\monster.local\\RunningData'
 
 class Spider:
     def download_file(self, targetUrl):
