@@ -9,7 +9,7 @@ def before():
     if os.path.exists(testFile):
         os.remove(testFile)
 
-def test_SaveResult(before):
+def test_save_result(before):
     s = Spider()
-    s.SaveResult(testFile,"some stuff".encode())
+    s.save_result(testFile,"some stuff".encode())
     assert(os.path.exists(testFile))

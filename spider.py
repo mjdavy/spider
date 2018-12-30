@@ -5,21 +5,21 @@ from bs4 import BeautifulSoup as bs
 runningDataStore = 'E:\\RunningData'
 
 class Spider:
-    def DownloadFile(self, targetUrl):
+    def download_file(self, targetUrl):
         http = urllib3.PoolManager()
         response = http.request('GET', targetUrl)
         if response.status == 200:
             path = os.path.join(runningDataStore, 'CoolRunningFile.txt')
-            self.SaveResult(path, response.data)
+            self.save_result(path, response.data)
 
-    def SaveResult(self, path, data):
+    def save_result(self, path, data):
         with open(path, 'wb') as f:
             f.write(data)
 
-    def ExtractLinks(self, data):
+    def extract_links(self, data):
         pass
 
 coolRunningDownloader = Spider()
-coolRunningDownloader.DownloadFile('http://www.coolrunning.com/results/17/ct/Dec3_PearlH_set1.shtml')
+coolRunningDownloader.download_file('http://www.coolrunning.com/results/17/ct/Dec3_PearlH_set1.shtml')
 
 
