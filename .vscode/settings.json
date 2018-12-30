@@ -2,5 +2,6 @@
     "python.unitTest.pyTestArgs": [],
     "python.unitTest.unittestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.pyTestEnabled": true
+    "python.unitTest.pyTestEnabled": true,
+    "python.pythonPath": "C:\\Users\\Martin\\Miniconda3\\python.exe"
 }
