@@ -9,7 +9,3 @@ def get_base_urls():
     years = [str(y)[-2:] for y in range(2000,datetime.now().year+1)]
     return [base+year+"/"+state.lower()+".shtml" for state in states for year in years]
 
-
-x = get_base_urls()
-print(x)
-print(len(x))
