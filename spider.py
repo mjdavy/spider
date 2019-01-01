@@ -7,12 +7,8 @@ class Spider:
         http = urllib3.PoolManager()
         response = http.request('GET', targetUrl)
         if response.status == 200:
-            links = self.extract_links(response.data)
-            for link in links:
-                self.download_file(link, outputFolder)
-            if links.count == 0:
-                path = build_output_path(outputFolder, targetUrl)
-                self.save_result(path, response.data)
+            path = self.build_output_path(outputFolder, targetUrl)
+            self.save_result(path, response.data)
         else:
             print("error accessing url")
                
@@ -27,8 +23,9 @@ class Spider:
             f.write(data)
 
     def extract_links(self, data):
-        return []
-
+        soup = bs(data, 'html.parser')
+        return [link.get('href') for link in soup.find_all('a')]
+            
 
 
 

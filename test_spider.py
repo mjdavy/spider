@@ -26,6 +26,11 @@ def test_build_output_path():
 def test_states():
     assert(len(states.states) == 51)
 
+from datetime import datetime
 def test_base_url_list():
+    years = datetime.now().year - 2000 + 1
     base_urls = url_base.get_base_urls()
-    assert(len(base_urls) == 51*19)
+    assert(len(base_urls) == 51*years)
+
+def test_extract_links():
+    assert(1 == 1)

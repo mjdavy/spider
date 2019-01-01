@@ -1,3 +1,7 @@
 [
-  "test_spider.py::test_base_url_list"
+  "test_spider.py::test_save_result",
+  "test_spider.py::test_build_output_path",
+  "test_spider.py::test_states",
+  "test_spider.py::test_base_url_list",
+  "test_spider.py::test_extract_links"
 ]
