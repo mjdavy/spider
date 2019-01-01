@@ -3,5 +3,6 @@
     "python.unitTest.unittestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
     "python.unitTest.pyTestEnabled": true,
-    "python.pythonPath": "C:\\Users\\Martin\\Miniconda3\\python.exe"
+    "python.pythonPath": "C:\\Users\\Martin\\Miniconda3\\python.exe",
+    "editor.detectIndentation": false
 }
