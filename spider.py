@@ -27,9 +27,10 @@ class Spider:
         with open(path, 'wb') as f:
             f.write(data)
 
-    def extract_links(self, data):
+    def extract_links(self, data, match):
         soup = bs(data, 'html.parser')
-        return [link.get('href') for link in soup.find_all('a')]
+        links = [link.get('href') for link in soup.find_all('a')]
+        return [link for link in links if link is not None and match in link]
             
 
 
