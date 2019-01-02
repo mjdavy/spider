@@ -1,20 +1,17 @@
-from datetime import datetime
-from states import states
+
+
 from spider import Spider
 
-runningDataStore = '\\\\monster.local\\RunningData\\'
+runningDataStore = '\\\\monster\\RunningData\\'
 
-# format is http://www.coolrunning.com/results/<2 digit year>/<2 letter state>.shtml
-# example: race result for vermont in 2016 would be http://www.coolrunning.com/results/16/vt.shtml
+spider = Spider()
+spider.output_folder = runningDataStore
 
-def get_base_urls():
-    base = "www.coolrunning.com/results/"
-    years = [str(y)[-2:] for y in range(2000,datetime.now().year+1)]
-    return [base+year+"/"+state.lower()+".shtml" for state in states for year in years]
+for url in spider.get_base_urls():
+    filter = url.rsplit('.')[-2][3:]
+    race_urls = spider.process_url(url,filter)
+    for race_url in race_urls:
+        fullUrl = f"http://www.coolrunning.com{race_url}"
+        spider.download_file(fullUrl)
 
-def extract_year_and_state(url):
-    url_parts = url.split('/')
-    parts_count = len(url_parts)
-    year = url_parts[parts_count - 2]
-    state = url_parts[parts_count - 1].split('.')[0]
-    return year, state
+ 
